@@ -31,6 +31,7 @@ CREATE TABLE `sanpham` (
   `sl` int,
   PRIMARY KEY (`maSP`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+ALTER TABLE sanpham MODIFY ngaynhap DATE;
 
 
  
