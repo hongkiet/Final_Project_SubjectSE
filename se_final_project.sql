@@ -71,7 +71,8 @@ CREATE TABLE khachhang (
     DiaChi VARCHAR(255) NOT NULL,
     SoDienThoai VARCHAR(20) NOT NULL,
     TaiKhoan VARCHAR(50) NOT NULL,
-    MatKhau VARCHAR(50) NOT NULL
+    MatKhau VARCHAR(50) NOT NULL.
+    Email VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE phieuxuatkho (
@@ -83,3 +84,11 @@ CREATE TABLE phieuxuatkho (
 );
 
 
+CREATE TABLE `reset_token` (
+  `email` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `expire_on` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `reset_token`
+ADD PRIMARY KEY (`email`);
