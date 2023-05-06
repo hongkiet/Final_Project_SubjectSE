@@ -40,7 +40,7 @@ VALUES('SP001', 'Samsung Galaxy S21 Ultra 5G', 'Samsung', '25000000', '2022-01-0
       ('SP002', 'iPhone 13 Pro Max', 'Apple', '29990000', '2022-02-01 00:00:00', '2022-02-07 00:00:00', 'Màn hình 6.7 inch, RAM 8GB, bộ nhớ 128GB, camera 12MP', 99),
       ('SP003', 'OnePlus 10 Pro', 'OnePlus', '19990000', '2022-03-01 00:00:00', '2022-03-07 00:00:00', 'Màn hình 6.7 inch, RAM 12GB, bộ nhớ 512GB, camera 64MP', 84),
       ('SP004', 'Xiaomi 12 Ultra', 'Xiaomi', '17990000', '2022-04-01 00:00:00', '2022-04-07 00:00:00', 'Màn hình 6.81 inch, RAM 12GB, bộ nhớ 256GB, camera 200MP', 11),
-      ('SP005', 'Oppo Find X5 Pro', 'Oppo', '21990000', '2022-05-01 00:00:00', '2022-05-07 00:00:00', 'Màn hình 6.7 inch, RAM 8GB, bộ nhớ 128GB, camera 108MP', 70);
+      ('SP005', 'Oppo Find X5 Pro', 'Oppo', '21990000', '2022-05-01 00:00:00', '2022-05-07 00:00:00', 'Màn hình 6.7 inch, RAM 8GB, bộ nhớ 128GB, camera 108MP', 70),
       ('SP006', 'Huawei P50 Pro', 'Huawei', '23990000', '2022-06-01 00:00:00', '2022-06-07 00:00:00', 'Màn hình 6.6 inch, RAM 8GB, bộ nhớ 256GB, camera 50MP', 28),
       ('SP007', 'Google Pixel 6 Pro', 'Google', '26990000', '2022-07-01 00:00:00', '2022-07-07 00:00:00', 'Màn hình 6.7 inch, RAM 12GB, bộ nhớ 512GB, camera 50MP', 17),
       ('SP008', 'Realme GT 2 Pro', 'Realme', '15990000', '2022-08-01 00:00:00', '2022-08-07 00:00:00', 'Màn hình 6.8 inch, RAM 12GB, bộ nhớ 256GB, camera 64MP', 42),
@@ -71,7 +71,7 @@ CREATE TABLE khachhang (
     DiaChi VARCHAR(255) NOT NULL,
     SoDienThoai VARCHAR(20) NOT NULL,
     TaiKhoan VARCHAR(50) NOT NULL,
-    MatKhau VARCHAR(50) NOT NULL.
+    MatKhau VARCHAR(50) NOT NULL,
     Email VARCHAR(50) NOT NULL
 );
 
