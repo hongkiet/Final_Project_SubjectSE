@@ -92,3 +92,31 @@ CREATE TABLE `reset_token` (
 
 ALTER TABLE `reset_token`
 ADD PRIMARY KEY (`email`);
+
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `productId` varchar(64) DEFAULT NULL,
+  `productName` text NOT NULL,
+  `dongia` int(11) NOT NULL,
+  `soluong` int(11) DEFAULT NULL,
+  `thanhtien` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `delivery` (
+  `id` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `NgayGiao` date NOT NULL,
+  `NgayNhan` date NOT NULL,
+  `status` text DEFAULT NULL,
+  `productID` varchar(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `delivery`
+--
+
+INSERT INTO `delivery` (`id`, `Name`, `NgayGiao`, `NgayNhan`, `status`, `productID`) VALUES
+(186, 'OnePlus 10 Pro', '2023-05-07', '2023-05-10', 'Đang xử lý', 'SP003'),
+(705, 'Sony Xperia 1 III', '2023-05-07', '2023-05-10', 'Processing', 'SP010');
