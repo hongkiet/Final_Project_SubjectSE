@@ -6,7 +6,7 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `se_final_project` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `se_final_project`;
 
-CREATE TABLE `account` (
+CREATE TABLE `staff` (
   `sID` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `sName` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `username` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-INSERT INTO `account` (`sID` ,`sName`,`username`, `phone_number`, `email`, `password`, `chucvu`) VALUES
+INSERT INTO `staff` (`sID` ,`sName`,`username`, `phone_number`, `email`, `password`, `chucvu`) VALUES
 ('0001', 'Chu server','admin', '0000000',  'admin@gmail.com', '123456','Quan tri');
 
 CREATE TABLE `product` (
@@ -75,6 +75,10 @@ CREATE TABLE customer (
     Email VARCHAR(50) NOT NULL
 );
 
+INSERT INTO customer (TenKH, DiaChi, SoDienThoai, TaiKhoan, MatKhau, Email)
+VALUES ('Nguyen Van A', '123 ABC, Quan 1, TP HCM', '0901234567', 'nguyenvana', 'mypass123', 'nguyenvana@gmail.com');
+
+
 CREATE TABLE exportReceipt (
   maPXK INT PRIMARY KEY AUTO_INCREMENT,
   maKH INT NOT NULL,
@@ -106,6 +110,7 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `delivery` (
   `id` int(11) NOT NULL,
+  `TenKH` VARCHAR(255) NOT NULL,
   `Name` text NOT NULL,
   `NgayGiao` date NOT NULL,
   `NgayNhan` date NOT NULL,
