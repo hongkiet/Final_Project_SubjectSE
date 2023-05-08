@@ -100,22 +100,25 @@ ADD PRIMARY KEY (`email`);
 
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
+  `maKH` INT NOT NULL,
   `productId` varchar(64) DEFAULT NULL,
   `productName` text NOT NULL,
   `dongia` int(11) NOT NULL,
   `soluong` int(11) DEFAULT NULL,
   `thanhtien` int(11) DEFAULT NULL
+  FOREIGN KEY (maKH) REFERENCES customer(maKH)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 CREATE TABLE `delivery` (
   `id` int(11) NOT NULL,
-  `TenKH` VARCHAR(255) NOT NULL,
+  `maKH` INT NOT NULL,
   `Name` text NOT NULL,
   `NgayGiao` date NOT NULL,
   `NgayNhan` date NOT NULL,
   `status` text DEFAULT NULL,
   `productID` varchar(64) DEFAULT NULL
+  FOREIGN KEY (maKH) REFERENCES customer(maKH)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
