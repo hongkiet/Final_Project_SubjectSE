@@ -16,7 +16,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
+CREATE DATABASE IF NOT EXISTS se_final_project DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE se_final_project;
 --
 -- Cơ sở dữ liệu: `se_final_project`
 --
@@ -62,7 +63,7 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `customer` (
-  `MaKH` int(11) NOT NULL,
+  `MaKH` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `TenKH` varchar(255) NOT NULL,
   `DiaChi` varchar(255) NOT NULL,
   `SoDienThoai` varchar(20) NOT NULL,
@@ -75,8 +76,6 @@ CREATE TABLE `customer` (
 -- Đang đổ dữ liệu cho bảng `customer`
 --
 
-INSERT INTO `customer` (`MaKH`, `TenKH`, `DiaChi`, `SoDienThoai`, `TaiKhoan`, `MatKhau`, `Email`) VALUES
-(1, 'Nguyen Van A', '123 ABC, Quan 1, TP HCM', '0901234567', 'nguyenvana', 'mypass123', 'nguyenvana@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -94,42 +93,10 @@ CREATE TABLE `delivery` (
   `productID` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `delivery`
---
 
-INSERT INTO `delivery` (`id`, `maKH`, `Name`, `NgayGiao`, `NgayNhan`, `status`, `productID`) VALUES
-(7957, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(2583, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(9611, 1, 'iPhone 13 Pro Max', '2023-05-09', '2023-05-12', 'Processing', 'SP002'),
-(3256, 1, 'Samsung Galaxy S21 Ultra 5G', '2023-05-09', '2023-05-12', 'Processing', 'SP001'),
-(1345, 1, 'Lenovo Legion Duel 3', '2023-05-09', '2023-05-12', 'Processing', 'SP015'),
-(5069, 1, 'TCL 30 Pro 5G', '2023-05-09', '2023-05-12', 'Processing', 'SP020'),
-(1396, 1, 'BlackBerry Key3', '2023-05-09', '2023-05-12', 'Processing', 'SP017'),
-(8592, 1, 'Vivo X70 Pro Plus', '2023-05-09', '2023-05-12', 'Processing', 'SP009'),
-(9693, 1, 'iPhone 13 Pro Max', '2023-05-09', '2023-05-12', 'Processing', 'SP002'),
-(5239, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(7157, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(2647, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(8343, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(9698, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(4103, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(2206, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(8066, 1, 'Asus ROG Phone 5S Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP012'),
-(9026, 1, 'Nokia X100', '2023-05-09', '2023-05-12', 'Processing', 'SP013'),
-(5302, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008'),
-(8006, 1, 'Xiaomi 12 Ultra', '2023-05-09', '2023-05-12', 'Processing', 'SP004'),
-(8091, 1, 'Xiaomi 12 Ultra', '2023-05-09', '2023-05-12', 'Processing', 'SP004'),
-(8300, 1, 'Realme GT 2 Pro', '2023-05-09', '2023-05-12', 'Processing', 'SP008');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `exportreceipt`
---
 
 CREATE TABLE `exportreceipt` (
-  `maPXK` int(11) NOT NULL,
+  `maPXK` int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
   `maKH` int(11) NOT NULL,
   `ngayXuatKho` date NOT NULL,
   `tongTien` decimal(18,2) NOT NULL,
@@ -139,33 +106,6 @@ CREATE TABLE `exportreceipt` (
   `SalePrice` decimal(18,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `exportreceipt`
---
-
-INSERT INTO `exportreceipt` (`maPXK`, `maKH`, `ngayXuatKho`, `tongTien`, `ProductID`, `soluong`, `OriPrice`, `SalePrice`) VALUES
-(1345, 1, '2023-05-09', '20926000.00', 'SP015', 1, '18990000.00', '20889000.00'),
-(1396, 1, '2023-05-09', '33015000.00', 'SP017', 2, '29980000.00', '32978000.00'),
-(2206, 1, '2023-05-09', '35215000.00', 'SP008', 2, '31980000.00', '35178000.00'),
-(2583, 1, '2023-05-09', '35215000.00', 'SP008', 2, '31980000.00', '35178000.00'),
-(2647, 1, '2023-05-09', '87982000.00', 'SP008', 5, '79950000.00', '87945000.00'),
-(3256, 1, '2023-05-09', '27537000.00', 'SP001', 1, '25000000.00', '27500000.00'),
-(4103, 1, '2023-05-09', '17626000.00', 'SP008', 1, '15990000.00', '17589000.00'),
-(5069, 1, '2023-05-09', '17626000.00', 'SP020', 1, '15990000.00', '17589000.00'),
-(5239, 1, '2023-05-09', '35215000.00', 'SP008', 2, '31980000.00', '35178000.00'),
-(5302, 1, '2023-05-09', '17626000.00', 'SP008', 1, '15990000.00', '17589000.00'),
-(7157, 1, '2023-05-09', '52804000.00', 'SP008', 3, '47970000.00', '52767000.00'),
-(7957, 1, '2023-05-09', '35215000.00', 'SP008', 2, '31980000.00', '35178000.00'),
-(8006, 1, '2023-05-09', '494762000.00', 'SP004', 25, '449750000.00', '494725000.00'),
-(8066, 1, '2023-05-09', '24226000.00', 'SP012', 1, '21990000.00', '24189000.00'),
-(8091, 1, '2023-05-09', '19826000.00', 'SP004', 1, '17990000.00', '19789000.00'),
-(8300, 1, '2023-05-09', '316639000.00', 'SP008', 18, '287820000.00', '316602000.00'),
-(8343, 1, '2023-05-09', '87982000.00', 'SP008', 5, '79950000.00', '87945000.00'),
-(8592, 1, '2023-05-09', '33026000.00', 'SP009', 1, '29990000.00', '32989000.00'),
-(9026, 1, '2023-05-09', '17626000.00', 'SP013', 1, '15990000.00', '17589000.00'),
-(9611, 1, '2023-05-09', '33026000.00', 'SP002', 1, '29990000.00', '32989000.00'),
-(9693, 1, '2023-05-09', '33026000.00', 'SP002', 1, '29990000.00', '32989000.00'),
-(9698, 1, '2023-05-09', '17626000.00', 'SP008', 1, '15990000.00', '17589000.00');
 
 -- --------------------------------------------------------
 
@@ -298,7 +238,7 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`sID`, `sName`, `username`, `phone_number`, `email`, `password`, `chucvu`) VALUES
-('0001', 'Chu server', 'admin', '0000000', 'admin@gmail.com', '123456', 'Quan tri');
+('0001', 'Admin', 'admin', '0000000', 'admin@gmail.com', '123456', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -318,17 +258,6 @@ CREATE TABLE `thongke` (
 -- Đang đổ dữ liệu cho bảng `thongke`
 --
 
-INSERT INTO `thongke` (`ProductID`, `TotalSalePrice`, `TotalOriPrice`, `Profit`, `TotalSale`) VALUES
-('SP001', 27500000, 25000000, 2500000, 1),
-('SP002', 65978000, 59980000, 5998000, 2),
-('SP004', 514514000, 467740000, 46774000, 26),
-('SP008', 738738000, 671580000, 67158000, 42),
-('SP009', 32989000, 29990000, 2999000, 1),
-('SP012', 24189000, 21990000, 2199000, 1),
-('SP013', 17589000, 15990000, 1599000, 1),
-('SP015', 20889000, 18990000, 1899000, 1),
-('SP017', 32978000, 29980000, 2998000, 2),
-('SP020', 17589000, 15990000, 1599000, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -337,14 +266,12 @@ INSERT INTO `thongke` (`ProductID`, `TotalSalePrice`, `TotalOriPrice`, `Profit`,
 --
 -- Chỉ mục cho bảng `customer`
 --
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`MaKH`);
+
 
 --
 -- Chỉ mục cho bảng `exportreceipt`
 --
-ALTER TABLE `exportreceipt`
-  ADD PRIMARY KEY (`maPXK`);
+
 
 --
 -- Chỉ mục cho bảng `importreceipt`
@@ -381,11 +308,7 @@ ALTER TABLE `thongke`
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
---
--- AUTO_INCREMENT cho bảng `customer`
---
-ALTER TABLE `customer`
-  MODIFY `MaKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 
 --
 -- AUTO_INCREMENT cho bảng `importreceipt`
